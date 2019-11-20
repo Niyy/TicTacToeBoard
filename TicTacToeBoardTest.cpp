@@ -20,3 +20,13 @@ TEST(TicTacToeBoardTest, unitTestName)
 	ASSERT_TRUE(true);
 }
 */
+
+
+TEST(TicTacToeBoardTest, PlaceOutOfBound)
+{
+	TicTacToeBoard board;
+
+	ASSERT_EQ(board.placePiece(0, 0), X);
+	ASSERT_EQ(board.placePiece(1, 0), O);
+	ASSERT_EQ(board.placePiece(1, 0), Invalid);
+}
