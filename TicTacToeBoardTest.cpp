@@ -22,11 +22,17 @@ TEST(TicTacToeBoardTest, unitTestName)
 */
 
 
-TEST(TicTacToeBoardTest, PlaceOutOfBound)
+TEST(TicTacToeBoardTest, PlaceOutInBound)
 {
 	TicTacToeBoard board;
 
 	ASSERT_EQ(board.placePiece(0, 0), X);
-	ASSERT_EQ(board.placePiece(1, 0), O);
-	ASSERT_EQ(board.placePiece(1, 0), Invalid);
+}
+
+
+TEST(TicTacToeBoardTest, PlaceOutOfBounds)
+{
+	TicTacToeBoard board;
+
+	ASSERT_EQ(board.placePiece(-1, -1), X);
 }
