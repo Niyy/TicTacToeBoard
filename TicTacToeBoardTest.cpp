@@ -22,7 +22,7 @@ TEST(TicTacToeBoardTest, unitTestName)
 */
 
 
-TEST(TicTacToeBoardTest, PlaceOutInBound)
+TEST(TicTacToeBoardTest, PlaceInBound)
 {
 	TicTacToeBoard board;
 
