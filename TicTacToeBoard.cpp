@@ -107,7 +107,7 @@ Piece TicTacToeBoard::getWinner()
   {
     toWin = 3;
 
-    for(int y = 1; y < BOARDSIZE; y++)
+    for(int y = 0; y < BOARDSIZE; y++)
     {
       if(turn == board[y][x])
       {
