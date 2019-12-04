@@ -168,7 +168,7 @@ Piece TicTacToeBoard::getWinner()
 
   if(filledBoard == 4 && turn == O)
   {
-    return Blank
+    return Blank;
   }
 
   return Invalid;
