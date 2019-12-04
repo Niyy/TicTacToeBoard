@@ -19,7 +19,14 @@ TicTacToeBoard::TicTacToeBoard()
 **/
 Piece TicTacToeBoard::toggleTurn()
 {
-  return Invalid;
+  switch(turn)
+  {
+    case X: turn = O;
+            break;
+    case O: turn = X;
+  }
+
+  return turn;
 }
 
 /**
@@ -34,7 +41,7 @@ Piece TicTacToeBoard::toggleTurn()
 Piece TicTacToeBoard::placePiece(int row, int column)
 {
   
-  if(board[row][column] == Blank)
+  if(getPiece(row, column) == Blank)
   {
     board[row][column] = turn;
 
@@ -50,6 +57,11 @@ Piece TicTacToeBoard::placePiece(int row, int column)
 **/
 Piece TicTacToeBoard::getPiece(int row, int column)
 {
+  if((row >= 0 && row < BOARDSIZE) && (column >= 0 && column < BOARDSIZE))
+  {
+    return board[row][column];
+  }
+
   return Invalid;
 }
 
@@ -59,5 +71,110 @@ Piece TicTacToeBoard::getPiece(int row, int column)
 **/
 Piece TicTacToeBoard::getWinner()
 {
-  return Invalid;
+  Piece checkWin = board[0][0];
+  int toWin = 3;
+
+  for(int y = 0; y < BOARDSIZE; y++)
+  {
+    checkWin = board[y][0];
+    toWin = 3;
+
+    for(int x = 1; x < BOARDSIZE; x++)
+    {
+      if(checkWin == board[y][x])
+      {
+        toWin--;
+      }
+      else if(board[y][x] == Blank)
+      {
+        return Invalid;
+      }
+    }
+
+    if(toWin == 0)
+    {
+      return checkWin;
+    }
+  }
+
+
+  for(int x = 0; x < BOARDSIZE; x++)
+  {
+    checkWin = board[0][x];
+    toWin = 3;
+
+    for(int y = 1; y < BOARDSIZE; y++)
+    {
+      if(checkWin == board[y][x])
+      {
+        toWin--;
+      }
+      else if(board[y][x] == Blank)
+      {
+        return Invalid;
+      }
+      else
+      {
+        break;
+      }
+      
+    }
+
+    if(toWin == 0)
+    {
+      return checkWin;
+    }
+  }
+
+  
+  checkWin = board[0][0];
+  toWin = 3;
+
+  for(int xy = 0; xy < BOARDSIZE; xy++)
+  {
+    if(checkWin == board[xy][xy])
+    {
+      toWin--;
+    }
+    else if(board[xy][xy] == Blank)
+    {
+      return Invalid;
+    }
+    else
+    {
+      break;
+    }
+
+    if(toWin == 0)
+    {
+      return checkWin;
+    }
+  }
+
+
+  checkWin = board[3][3];
+  toWin = 3;
+
+  for(int xy = 3; xy < BOARDSIZE; xy--)
+  {
+    if(checkWin == board[xy][xy])
+    {
+      toWin--;
+    }
+    else if(board[xy][xy] == Blank)
+    {
+      return Invalid;
+    }
+    else
+    {
+      break;
+    }
+
+    if(toWin == 0)
+    {
+      return checkWin;
+    }
+  }
+
+  return Blank;
 }
