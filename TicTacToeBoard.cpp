@@ -75,6 +75,7 @@ Piece TicTacToeBoard::getPiece(int row, int column)
 Piece TicTacToeBoard::getWinner()
 {
   int toWin = 3;
+  int filledBoard = 0;
 
   for(int y = 0; y < BOARDSIZE; y++)
   {
@@ -85,10 +86,7 @@ Piece TicTacToeBoard::getWinner()
       if(turn == board[y][x])
       {
         toWin--;
-      }
-      else if(board[y][x] == Blank)
-      {
-        return Invalid;
+        filledBoard++;
       }
       else
       {
@@ -112,10 +110,7 @@ Piece TicTacToeBoard::getWinner()
       if(turn == board[y][x])
       {
         toWin--;
-      }
-      else if(board[y][x] == Blank)
-      {
-        return Invalid;
+        filledBoard++;
       }
       else
       {
@@ -138,10 +133,7 @@ Piece TicTacToeBoard::getWinner()
     if(turn == board[xy][xy])
     {
       toWin--;
-    }
-    else if(board[xy][xy] == Blank)
-    {
-      return Invalid;
+      filledBoard++;
     }
     else
     {
@@ -161,10 +153,7 @@ Piece TicTacToeBoard::getWinner()
     if(turn == board[xy][xy])
     {
       toWin--;
-    }
-    else if(board[xy][xy] == Blank)
-    {
-      return Invalid;
+      filledBoard++;
     }
     else
     {
@@ -177,5 +166,10 @@ Piece TicTacToeBoard::getWinner()
     }
   }
 
-  return Blank;
+  if(filledBoard == 4 && turn == O)
+  {
+    return Blank
+  }
+
+  return Invalid;
 }
