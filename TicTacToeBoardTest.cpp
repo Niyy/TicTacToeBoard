@@ -36,3 +36,51 @@ TEST(TicTacToeBoardTest, PlaceOutOfBounds)
 
 	ASSERT_EQ(board.placePiece(-1, -1), Invalid);
 }
+
+
+TEST(TicTacToeBoardTest, Player)
+{
+	TicTacToeBoard board;
+
+	board.placePiece(0, 0);
+	board.toggleTurn();
+	board.getWinner();
+	board.placePiece(0, 2);
+	board.toggleTurn();
+	board.getWinner();
+
+	board.placePiece(1, 0);
+	board.toggleTurn();
+	board.getWinner();
+	board.placePiece(1, 2);
+	board.toggleTurn();
+	board.getWinner();
+
+	board.placePiece(2, 0);
+	board.toggleTurn();
+	ASSERT_EQ(board.getWinner(), X);
+}
+
+
+TEST(TicTacToeBoardTest, Player)
+{
+	TicTacToeBoard board;
+
+	board.placePiece(0, 0);
+	board.toggleTurn();
+	board.getWinner();
+	board.placePiece(0, 2);
+	board.toggleTurn();
+	board.getWinner();
+
+	board.placePiece(1, 0);
+	board.toggleTurn();
+	board.getWinner();
+	board.placePiece(1, 2);
+	board.toggleTurn();
+	board.getWinner();
+
+	board.placePiece(2, 1);
+	board.toggleTurn();
+	ASSERT_EQ(board.getWinner(), Invalid);
+}

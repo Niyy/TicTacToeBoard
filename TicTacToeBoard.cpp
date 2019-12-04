@@ -71,17 +71,15 @@ Piece TicTacToeBoard::getPiece(int row, int column)
 **/
 Piece TicTacToeBoard::getWinner()
 {
-  Piece checkWin = board[0][0];
   int toWin = 3;
 
   for(int y = 0; y < BOARDSIZE; y++)
   {
-    checkWin = board[y][0];
     toWin = 3;
 
-    for(int x = 1; x < BOARDSIZE; x++)
+    for(int x = 0; x < BOARDSIZE; x++)
     {
-      if(checkWin == board[y][x])
+      if(turn == board[y][x])
       {
         toWin--;
       }
@@ -89,23 +87,26 @@ Piece TicTacToeBoard::getWinner()
       {
         return Invalid;
       }
+      else
+      {
+        break;
+      }
     }
 
     if(toWin == 0)
     {
-      return checkWin;
+      return turn;
     }
   }
 
 
   for(int x = 0; x < BOARDSIZE; x++)
   {
-    checkWin = board[0][x];
     toWin = 3;
 
     for(int y = 1; y < BOARDSIZE; y++)
     {
-      if(checkWin == board[y][x])
+      if(turn == board[y][x])
       {
         toWin--;
       }
@@ -122,17 +123,16 @@ Piece TicTacToeBoard::getWinner()
 
     if(toWin == 0)
     {
-      return checkWin;
+      return turn;
     }
   }
 
   
-  checkWin = board[0][0];
   toWin = 3;
 
   for(int xy = 0; xy < BOARDSIZE; xy++)
   {
-    if(checkWin == board[xy][xy])
+    if(turn == board[xy][xy])
     {
       toWin--;
     }
@@ -147,17 +147,15 @@ Piece TicTacToeBoard::getWinner()
 
     if(toWin == 0)
     {
-      return checkWin;
+      return turn;
     }
   }
 
-
-  checkWin = board[3][3];
   toWin = 3;
 
   for(int xy = 3; xy < BOARDSIZE; xy--)
   {
-    if(checkWin == board[xy][xy])
+    if(turn == board[xy][xy])
     {
       toWin--;
     }
@@ -172,7 +170,7 @@ Piece TicTacToeBoard::getWinner()
 
     if(toWin == 0)
     {
-      return checkWin;
+      return turn;
     }
   }
 
