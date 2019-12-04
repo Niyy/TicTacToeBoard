@@ -93,3 +93,11 @@ TEST(TicTacToeBoardTest, GameFinishedDraw)
 
 	ASSERT_EQ(board.getWinner(), Blank);
 }
+
+
+TEST(TicTacToeBoardTest, ToggleSecondPlayer)
+{
+	TicTacToeBoard board;
+
+	ASSERT_EQ(board.toggleTurn(), O);
+}

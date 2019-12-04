@@ -168,7 +168,7 @@ Piece TicTacToeBoard::getWinner()
     }
   }
 
-  if(filledBoard == 9)
+  if(filledBoard == 8 && turn == O)
   {
     return Blank;
   }
