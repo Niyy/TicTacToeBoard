@@ -8,6 +8,7 @@
 TicTacToeBoard::TicTacToeBoard()
 {
   turn = X;
+  filledBoard = 0;
   for(int i=0; i<BOARDSIZE; i++)
     for(int j=0; j<BOARDSIZE; j++)
       board[i][j] = Blank;
@@ -47,6 +48,7 @@ Piece TicTacToeBoard::placePiece(int row, int column)
   if(getPiece(row, column) == Blank)
   {
     board[row][column] = turn;
+    filledBoard++;
 
     return turn;
   }
@@ -166,7 +168,7 @@ Piece TicTacToeBoard::getWinner()
     }
   }
 
-  if(filledBoard == 4 && turn == O)
+  if(filledBoard == 9)
   {
     return Blank;
   }

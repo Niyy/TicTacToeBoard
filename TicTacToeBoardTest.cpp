@@ -73,23 +73,23 @@ TEST(TicTacToeBoardTest, GameFinishedDraw)
 {
 	TicTacToeBoard board;
 
-	board.placePiece(0, 0);
+	board.placePiece(0, 0);//x
 	board.toggleTurn();
-	board.placePiece(0, 2);
+	board.placePiece(0, 2);//o
 	board.toggleTurn();
-	board.placePiece(0, 1);
+	board.placePiece(0, 1);//x
 	board.toggleTurn();
-	board.placePiece(1, 0);
+	board.placePiece(1, 0);//o
 	board.toggleTurn();
-	board.placePiece(1, 2);
+	board.placePiece(1, 2);//x
 	board.toggleTurn();
-	board.placePiece(1, 1);
+	board.placePiece(1, 1);//o
 	board.toggleTurn();
-	board.placePiece(2, 0);
+	board.placePiece(2, 0);//x
 	board.toggleTurn();
-	board.placePiece(2, 2);
+	board.placePiece(2, 2);//o
 	board.toggleTurn();
-	board.placePiece(2, 1);
+	board.placePiece(2, 1);//o
 
 	ASSERT_EQ(board.getWinner(), Blank);
 }
