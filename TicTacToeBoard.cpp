@@ -77,7 +77,6 @@ Piece TicTacToeBoard::getPiece(int row, int column)
 Piece TicTacToeBoard::getWinner()
 {
   int toWin = 3;
-  int filledBoard = 0;
 
   for(int y = 0; y < BOARDSIZE; y++)
   {
@@ -133,7 +132,6 @@ Piece TicTacToeBoard::getWinner()
     if(turn == board[xy][xy])
     {
       toWin--;
-      filledBoard++;
     }
     else
     {

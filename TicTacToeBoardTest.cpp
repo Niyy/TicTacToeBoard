@@ -89,7 +89,7 @@ TEST(TicTacToeBoardTest, GameFinishedDraw)
 	board.toggleTurn();
 	board.placePiece(2, 2);//o
 	board.toggleTurn();
-	board.placePiece(2, 1);//o
+	board.placePiece(2, 1);//x
 
 	ASSERT_EQ(board.getWinner(), Blank);
 }
